@@ -14,10 +14,11 @@ function Categorie({categorie, updateCategorie}) {
 
     return (
         <div>
-            <select name='categorie_' id='categoriePlante' onChange={handleInput}>
+            <select name='categorie_' id='categoriePlante' onChange={handleInput} value={categorie}>
                 <option value='default'>...</option>
                 {categories.map((cat) => (<option value={cat}>{cat}</option>))}
             </select>
+            <button onClick={() => updateCategorie('default')}>Réinitialiser</button>
         </div>
     )
 
