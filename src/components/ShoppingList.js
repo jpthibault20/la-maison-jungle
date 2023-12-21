@@ -1,9 +1,13 @@
-import PlantItem from './PlantItem.js'
 import { plantList } from '../datas/plantList'
+import PlantItem from './PlantItem'
 import '../styles/ShoppingList.css'
 
 function ShoppingList() {
-	const categories = plantList.reduce((acc, plant) =>	acc.includes(plant.category) ? acc : acc.concat(plant.category),[])
+	const categories = plantList.reduce(
+		(acc, plant) =>
+			acc.includes(plant.category) ? acc : acc.concat(plant.category),
+		[]
+	)
 
 	return (
 		<div>
@@ -13,10 +17,15 @@ function ShoppingList() {
 				))}
 			</ul>
 			<ul className='lmj-plant-list'>
-				{plantList.map(({name, cover, id, light, water}) => (
-					<PlantItem name={name} cover={cover} id={id} light={light} water={water} />
-				)
-				)}
+				{plantList.map(({ id, cover, name, water, light }) => (
+					<PlantItem
+						key={id}
+						cover={cover}
+						name={name}
+						water={water}
+						light={light}
+					/>
+				))}
 			</ul>
 		</div>
 	)
